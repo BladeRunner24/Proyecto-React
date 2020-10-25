@@ -1,5 +1,8 @@
 import React from 'react';
-import ".././App.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+
+const element = <FontAwesomeIcon icon={faShoppingCart} />
 
 const styles = {
     backgroundColor: 'blue',
@@ -12,31 +15,20 @@ const styles1 = {
     width: '50vw',
     float: 'left', 
 };
-
 const styles2 = {
-    listStyleType: 'none',
-    width: '30vw',
-    float: 'right',
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    fontSize: '14px',
-    right: '4vw',
-    top: '20%',    
-};
+  backgroundColor: 'grey',
+  border: 'solid black 2px', 
+  boxSizing: 'content-box',
+  padding: '4px',   
+}
+
 
 export default function NavBar() {
 
     return (
-    <>
       <nav style = {styles}>
-          <h1 style = {styles1}>E-Commerce</h1>
-          <ul style = {styles2}>              
-             <li><a>Seccion 1</a></li>
-             <li><a>Seccion 2</a></li>
-             <li><a>Seccion 3</a></li> 
-          </ul>
-      </nav>
-    </>
+        <h2 style = {styles1}>E-Commerce</h2> 
+        <a style = {styles2}>{element}</a>     
+      </nav>    
     );
 };
