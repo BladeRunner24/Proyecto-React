@@ -24,12 +24,12 @@ const styles2 = {
     backgroundColor: 'turquoise',
 }
 
-export default function ItemListContainer() {
+export default function ItemListContainer (props) {
 
     return (
       <div style = {styles}>
-          <h1 style = {styles1}>BIENVENIDO A MI E-COMMERCE!</h1>
-          <div style = {styles2}></div>
+          <h1 style = {styles1}>BIENVENIDO A MI {props.title}!</h1>
+          <div style = {styles2}></div> 
           <div style = {styles2}></div>
           <div style = {styles2}></div>
       </div>
