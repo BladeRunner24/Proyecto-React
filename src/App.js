@@ -9,7 +9,7 @@ function App() {
       <header className="App-header">
         <NavBar/>
       </header>
-       <ItemListContainer/>
+       <ItemListContainer title = 'E-COMMERCE'/>
     </div>
   );
 }
