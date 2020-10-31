@@ -1,10 +1,10 @@
-import React, {Components, useState, useEffect} from 'react';
+import React, {useState} from 'react';
 
-export default function ItemCount(props) {
+export default function ItemCount(props, max, min, amount) {    
 
     const styleitemc = {
+        position: 'relative',
         width: '6vw',
-        height: '8vh',
         display: 'flex',
         flexDirection: 'column',
         justifyContent: 'flex-start',
@@ -18,7 +18,8 @@ export default function ItemCount(props) {
         height: '2vh',
         display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-between',        
+        justifyContent: 'space-between', 
+        bottom : '10',       
     }
     const botones = {
         width: '20%'
@@ -26,28 +27,30 @@ export default function ItemCount(props) {
     const boton = {
         height: '2vh',
     }
-    const totalInv = 10;
+    
+    const [number, setNumber] = useState([2]);
+    
 
-    const [number, setNumber] = useState([0]);
+    function onAdd (){
+        if (number < max){
+        setNumber(number + amount)
+        }           
+    };
+    function onRemove (){
+        if (number > min) {
+        setNumber(number - amount) 
+        }       
+    };
 
-    useEffect(() => {
-        if (number > totalInv) {
-
-        }else if ( number < 2) {
-
-        }else {}
-
-    }, [number]
-    );
     
     return (      
 
         <div style = {styleitemc}>
             <h3 style = {styletitle}>{props.title}</h3>
             <div style = {counter}>
-              <button style = {botones} onClick ={() => setNumber + 1}>+</button>
+              <button style = {botones} onClick ={onAdd}>+</button>
               <button style = {botones}>({number})</button>
-              <button style = {botones} onClick ={() => setNumber - 1} >-</button>
+              <button style = {botones} onClick ={onRemove} >-</button>
             </div>
             <button style = {boton}>{props.accion}</button>
         </div>              
