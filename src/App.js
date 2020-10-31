@@ -11,7 +11,7 @@ function App() {
         <NavBar/>
       </header>
        <ItemListContainer title = 'E-COMMERCE'/>
-       <ItemCount title = 'Bicicletas' accion = 'comprar'/> 
+       <ItemCount title = 'Bicicletas' accion = 'comprar' max =  {5} min = {1} amount = {1}/>
     </div>
   );
 }
