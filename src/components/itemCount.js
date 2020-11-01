@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-export default function ItemCount(props, max, min, amount) {    
+export default function ItemCount(props) {    
 
     const styleitemc = {
         position: 'relative',
@@ -28,17 +28,17 @@ export default function ItemCount(props, max, min, amount) {
         height: '2vh',
     }
     
-    const [number, setNumber] = useState([2]);
+    const [number, setNumber] = useState(2);
     
 
     function onAdd (){
-        if (number < max){
-        setNumber(number + amount)
+        if (number < props.max){
+        setNumber(number + props.amount)
         }           
     };
     function onRemove (){
-        if (number > min) {
-        setNumber(number - amount) 
+        if (number > props.min) {
+        setNumber(number - props.amount) 
         }       
     };
 
