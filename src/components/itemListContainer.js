@@ -1,4 +1,5 @@
 import React from 'react';
+import Itemlist from '.ItemList.js';
 
 const styles = {
     marginLeft: '5vw',
@@ -29,7 +30,9 @@ export default function ItemListContainer (props) {
     return (
       <div style = {styles}>
           <h1 style = {styles1}>BIENVENIDO A MI {props.title}!</h1>
-          <div style = {styles2}></div> 
+          <div style = {styles2}>
+          <Itemlist/>
+          </div> 
           <div style = {styles2}></div>
           <div style = {styles2}></div>
       </div>
