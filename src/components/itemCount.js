@@ -40,7 +40,10 @@ export default function ItemCount(props) {
         if (number > props.min) {
         setNumber(number - props.amount) 
         }       
-    };
+    }
+    function respuestaCompra() {
+        alert(`Se van a agregar ${number} ${props.title} a su carrito`);
+    } 
 
     
     return (      
@@ -48,11 +51,11 @@ export default function ItemCount(props) {
         <div style = {styleitemc}>
             <h3 style = {styletitle}>{props.title}</h3>
             <div style = {counter}>
-              <button style = {botones} onClick ={onAdd}>+</button>
+              <button style = {botones} onClick ={onRemove}>-</button>
               <button style = {botones}>({number})</button>
-              <button style = {botones} onClick ={onRemove} >-</button>
+              <button style = {botones} onClick ={onAdd} >+</button>
             </div>
-            <button style = {boton}>{props.accion}</button>
+            <button style = {boton} onClick = {respuestaCompra}>{props.accion}</button>
         </div>              
     );
 };
