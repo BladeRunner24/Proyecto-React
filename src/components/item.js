@@ -1,9 +1,18 @@
 import React from 'react';
 
-const element1 = [
-    {id: '130b'},
-    {title: 'Mountain Bike Thunder'},
-    {price: 45000},
-    {url: 'https://www.fravega.com/p/bicicleta-mountain-bike-rodado-29-futura-lynce-negra-560425?utm_content=fravega_fit_1000483_560425_futura&gclid=Cj0KCQjwufn8BRCwARIsAKzP696nmrfb2PdwBG7ZcD1kzYjoD0cREMiMz3njhJ3ia5juIyFMcUErHdAaAgLDEALw_wcB&gclsrc=aw.ds'},
-];
+export default function Item(props) {
+
+    const styles = {
+       display: 'flex',
+       flexDirection: 'column',
+    }
+
+    return (
+          <div>
+              <h3>Titulo: {props.title} Product id: {props.id}</h3>
+              <p>Precio: {props.price}</p>
+              <img href = {props.image} alt = 'Mountain Bike'/> 
+          </div>
+  );
+};
 
