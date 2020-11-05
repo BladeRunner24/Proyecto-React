@@ -1,4 +1,5 @@
 import React from 'react';
+import ListaItems from './ItemList.js'
 
 const styles = {
     marginLeft: '5vw',
@@ -26,10 +27,19 @@ const styles2 = {
 
 export default function ItemListContainer (props) {
 
+    const listado = [
+        {
+          id: '130b',
+          title: 'Mountain Bike Lince',
+          price: 50000,
+          image: './bicicletas/bicicleta_lince.webp'  
+        }
+    ]; 
+
     return (
       <div style = {styles}>
           <h1 style = {styles1}>BIENVENIDO A MI {props.title}!</h1>
-          <div style = {styles2}></div>       
+          <div style = {styles2}><ListaItems listado = {listado}/></div> 
           <div style = {styles2}></div>
           <div style = {styles2}></div>
       </div>
