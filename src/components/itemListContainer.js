@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useEffect} from 'react';
 import ListaItems from './ItemList.js'
 
 const styles = {
@@ -27,15 +27,36 @@ const styles2 = {
 
 export default function ItemListContainer (props) {
 
-    const listado = [
-        {
-          id: '130b',
-          title: 'Mountain Bike Lince',
-          price: 50000,
-          image: './bicicletas/bicicleta_lince.webp'  
-        }
-    ]; 
+  useEffect(() => {
+    
+    const list = new Promise((res, rej) => {
+      setTimeout(() => {
+        res([
+          {
+            id: '130b',
+            title: 'Mountain Bike Lince',
+            price: 50000,
+            image: './bicicletas/bicicleta_lince.webp'  
+          },
+          {
+            id: '152a',
+            title: 'Mountain Bike Tiger',
+            price: 65000,
+            image: './bicicletas/bicicleta_tiger.webp'  
+          }
+      ]);
+      }, 2000);
+    });
+    list.then(listado => {
+       return {listado}; 
+    }, err => {
+       console.log(null);
+    }).catch (error => {
+      console.log(`Se ha producido un error ${error}`);
+    })
+  }, []);
 
+   
     return (
       <div style = {styles}>
           <h1 style = {styles1}>BIENVENIDO A MI {props.title}!</h1>
