@@ -1,4 +1,4 @@
-import React, {useEffect} from 'react';
+import React, {useEffect, useState} from 'react';
 import ListaItems from './ItemList.js'
 
 const styles = {
@@ -27,6 +27,8 @@ const styles2 = {
 
 export default function ItemListContainer (props) {
 
+  const [ listadoProds, setListadoProds ] = useState( [ ] );
+
   useEffect(() => {
     
     const list = new Promise((res, rej) => {
@@ -48,7 +50,7 @@ export default function ItemListContainer (props) {
       }, 2000);
     });
     list.then(listado => {
-       return {listado}; 
+      setListadoProds(listado); 
     }, err => {
        console.log(null);
     }).catch (error => {
@@ -60,9 +62,7 @@ export default function ItemListContainer (props) {
     return (
       <div style = {styles}>
           <h1 style = {styles1}>BIENVENIDO A MI {props.title}!</h1>
-          <div style = {styles2}><ListaItems listado = {listado}/></div> 
-          <div style = {styles2}></div>
-          <div style = {styles2}></div>
+          <div style = {styles2}><ListaItems listado = {listadoProds}/></div>           
       </div>
     );
 };
