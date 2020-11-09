@@ -2,6 +2,7 @@ import React from 'react';
 import NavBar from './components/NavBar.js';
 import ItemListContainer from './components/itemListContainer.js';
 import ItemCount from './components/itemCount.js';
+import ItemDetailContainer from './components/itemDetailContainer.js';
 import './App.css';
 
 function App() {
@@ -12,6 +13,7 @@ function App() {
       </header>
        <ItemListContainer title = 'E-COMMERCE'/>
        <ItemCount title = 'Bicicletas' accion = 'comprar' max =  {5} min = {1} amount = {1}/>
+       <ItemDetailContainer/>
     </div>
   );
 }
