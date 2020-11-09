@@ -1,6 +1,7 @@
 import React from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faShoppingCart } from '@fortawesome/free-solid-svg-icons'
+import { Link } from 'react-router-dom';
 
 const element = <FontAwesomeIcon icon={faShoppingCart} />
 
@@ -14,6 +15,6 @@ const styles2 = {
 export default function CartWidget() {
 
     return (
-      <a href = '' style = {styles2}>{element}</a>        
+      <Link  to = "/otra-ruta" style = {styles2}>{element}</Link>        
     );
 };
