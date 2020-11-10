@@ -1,5 +1,4 @@
 import React, {useEffect, useState} from 'react';
-import { useParams} from 'react-router-dom';
 import ListaItems from './ItemList.js'
 
 const styles = {
@@ -29,8 +28,7 @@ const styles2 = {
 export default function ItemListContainer (props) {
 
   const [ listadoProds, setListadoProds ] = useState( [ ] );
-  const { id } = useParams();
-
+  
   useEffect(() => {
     
     const list = new Promise((res, rej) => {
@@ -51,7 +49,7 @@ export default function ItemListContainer (props) {
       ]);
       }, 2000);
     });
-    list(id).then(listado => {
+    list.then(listado => {
       setListadoProds(listado); 
     }, err => {
        console.log(null);
