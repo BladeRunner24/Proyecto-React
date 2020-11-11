@@ -28,7 +28,7 @@ export default function ItemDetailContainer (props) {
     });
     list.then(listado => {
       console.log(listado)
-      setListadoProds(listado.filter (l => l.id === '130b')); 
+      setListadoProds(listado.filter (l => l.id === '130b')[0]); 
       console.log(listadoProds)
     }, err => {
        console.log(null);
