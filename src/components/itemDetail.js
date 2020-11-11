@@ -3,17 +3,17 @@ import ItemCount from "./itemCount.js";
 
 export default function ItemDetail (props) {
 
-    const listprod = props.listadoproductos;
     
-    return listprod.map((prod) => (
+    return (
         <>
           <div>
-            <h3> {prod.price} = {precio.props}</h3>
-            <h4> {prod.title} = {titulo.props}</h4>
-            <p> {prod.description} = {descripcion.props}</p>             
+            <h3>{props.ids}</h3>
+            <p>{props.titulo}</p>
+            <p>{props.descripcion}</p>
+            <p>{props.precio}</p>             
           </div>
-          <ItemCount/>
+          <ItemCount title = 'Bicicletas' accion = 'comprar' max = {5} min = {1} amount = {1}/>
         </>
-    )
+    
     );
 };
