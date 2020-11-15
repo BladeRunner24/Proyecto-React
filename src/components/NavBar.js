@@ -1,5 +1,6 @@
 import React from 'react';
 import CartWidget from './cartWidget.js';
+import { NavLink } from 'react-router-dom';
 
 const styles = {
     backgroundColor: 'blue',
@@ -17,7 +18,7 @@ export default function NavBar() {
 
     return (
       <nav style = {styles}>
-        <h2 style = {styles1}>E-Commerce</h2> 
+        <NavLink to = "/" activeClassName = ""><h2 style = {styles1}>E-Commerce</h2></NavLink> 
         <CartWidget/>             
       </nav>    
     );
