@@ -16,15 +16,6 @@ const styles1 = {
     fontSize: '24px', 
 }
 
-const styles2 = {
-    height: '10vh',
-    width: '80%',
-    marginLeft: '10%',
-    marginRight: '10%',
-    border: 'solid black 2px',
-    backgroundColor: 'turquoise',
-}
-
 export default function ItemListContainer (props) {
 
   const [ listadoProds, setListadoProds ] = useState( [ ] );
@@ -38,13 +29,13 @@ export default function ItemListContainer (props) {
             id: '130b',
             title: 'Mountain Bike Lince',
             price: 50000,
-            image: './bicicletas/bicicleta_lince.webp'  
+            image: './imagenes/bicicleta_lince.webp'  
           },
           {
             id: '152a',
             title: 'Mountain Bike Tiger',
             price: 65000,
-            image: './bicicletas/bicicleta_tiger.webp'  
+            image: './imagenes/bicicleta_tiger.webp'  
           }
       ]);
       }, 2000);
@@ -62,7 +53,7 @@ export default function ItemListContainer (props) {
     return (
       <div style = {styles}>
           <h1 style = {styles1}>BIENVENIDO A MI {props.title}!</h1>
-          <div style = {styles2}><ListaItems listado = {listadoProds}/></div>           
+          <ListaItems listado = {listadoProds}/>           
       </div>
     );
 };
