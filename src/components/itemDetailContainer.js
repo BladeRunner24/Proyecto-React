@@ -12,18 +12,25 @@ export default function ItemDetailContainer (props) {
     
     const list = new Promise((res, rej) => {
       setTimeout(() => {
-        res(
+        res([
           {
             id: '130b',
             price: 50000,  
             title: 'Mountain Bike Lince',
             description: 'Bicicleta de 6 cambios producida por Lince.',             
           },
+          {
+            id: '152a',
+            price: 65000,
+            title: 'Mountain Bike Tiger',
+            description: 'Bicicleta de 8 cambios producida por Tiger y hecha enteramente con fibra de carbono',              
+          }]
           );
       }, 3000);
     });
     list.then(listado => {
-      setDetalleProds(listado); 
+      setDetalleProds(listado.filter(l => l.id === id)[0]);      
+       
     }, err => {
        console.log(null);
     }).catch (error => {
@@ -31,10 +38,11 @@ export default function ItemDetailContainer (props) {
     })
   }, [id]);
 
+  console.log(detalleProds)
+
   
 
     return  (
-
         <ItemDetail ids = {detalleProds.id} titulo = {detalleProds.title} descripcion = {detalleProds.description} precio = {detalleProds.price}/>
     )
 };
