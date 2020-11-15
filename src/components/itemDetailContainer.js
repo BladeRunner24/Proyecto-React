@@ -38,8 +38,7 @@ export default function ItemDetailContainer (props) {
     })
   }, [id]);
 
-  console.log(detalleProds)
-
+  
   
 
     return  (
