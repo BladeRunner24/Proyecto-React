@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-export default function ItemCount(props, {apagado}) {    
+export default function ItemCount(props) {    
 
     const styleitemc = {
         position: 'relative',
@@ -29,7 +29,7 @@ export default function ItemCount(props, {apagado}) {
     }
     
     const [number, setNumber] = useState(2);
-    
+        
 
     function onAdd (){
         if (number < props.max){
@@ -41,10 +41,7 @@ export default function ItemCount(props, {apagado}) {
         setNumber(number - props.amount) 
         }       
     }
-    function respuestaCompra() {
-        alert(`Se van a agregar ${number} ${props.title} a su carrito`);
-    } 
-       
+           
        
     return (      
 
@@ -55,7 +52,7 @@ export default function ItemCount(props, {apagado}) {
               <button style = {botones}>({number})</button>
               <button style = {botones} onClick ={onAdd} >+</button>
             </div>
-            <button style = {boton} onClick = {respuestaCompra, apagado}>{props.accion}</button>
+            <button style = {boton} onClick = {() => props.apagado(number)}>{props.accion}</button>
         </div>              
     );
 };
