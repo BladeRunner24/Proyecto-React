@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-export default function ItemCount(props) {    
+export default function ItemCount(props, {apagado}) {    
 
     const styleitemc = {
         position: 'relative',
@@ -44,8 +44,8 @@ export default function ItemCount(props) {
     function respuestaCompra() {
         alert(`Se van a agregar ${number} ${props.title} a su carrito`);
     } 
-
-    
+       
+       
     return (      
 
         <div style = {styleitemc}>
@@ -55,7 +55,7 @@ export default function ItemCount(props) {
               <button style = {botones}>({number})</button>
               <button style = {botones} onClick ={onAdd} >+</button>
             </div>
-            <button style = {boton} onClick = {respuestaCompra}>{props.accion}</button>
+            <button style = {boton} onClick = {respuestaCompra, apagado}>{props.accion}</button>
         </div>              
     );
 };
