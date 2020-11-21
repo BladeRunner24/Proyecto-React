@@ -24,8 +24,7 @@ export default function ItemDetail (props) {
             <p>{props.descripcion}</p>
             <p>{props.precio}</p>             
           </div>
-          <ItemCount apagado = {onAdd} disabled = {onLine === false}  title = 'Bicicletas' accion = 'comprar' max = {5} min = {1} amount = {1}/>
-          <Link to = "/carrito"><button disabled = {onLine === true}>Terminar mi compra</button></Link>
+          {onLine ? <ItemCount apagado = {onAdd} title = 'Bicicletas' accion = 'comprar' max = {5} min = {1} amount = {1}/> : <Link to = "/carrito"><button>Terminar mi compra</button></Link>}
         </>
     );
 };
