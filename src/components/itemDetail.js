@@ -1,12 +1,14 @@
-import React, {useState} from 'react';
+import React, {useState, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import ItemCount from "./itemCount.js";
+import  CartProvider from '../context/cartContext.js';
 
 export default function ItemDetail (props) {
 
   const [onLine, setOnLine] = useState(true);
   const [guardar, setGuardar] = useState();
   const titulo = 'bicicletas';
+  const {add, remove, clean} = useContext(CartProvider);
 
   function onAdd(number){
     setOnLine(false);
@@ -14,9 +16,7 @@ export default function ItemDetail (props) {
     alert(`Se van a agregar ${number} ${titulo} a su carrito`);
     };
 
-  console.log(onLine);
-
-    return (
+  return (
         <>
           <div>
             <h3>{props.ids}</h3>
