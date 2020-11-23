@@ -2,15 +2,16 @@ import React from 'react';
 import {BrowserRouter, Switch, Route} from 'react-router-dom';
 import NavBar from './components/NavBar.js';
 import ItemListContainer from './components/itemListContainer.js';
-import ItemCount from './components/itemCount.js';
 import ItemDetailContainer from './components/itemDetailContainer.js';
 import Cart from './components/cart.js';
 import './App.css';
+import  CartProvider  from './context/cartContext.js';
 
 
 
 function App() {
   return (
+    <CartProvider defaultcart = {[]}>
     <BrowserRouter>
     <div className="App">
       <header className="App-header">
@@ -18,8 +19,7 @@ function App() {
       </header>
       <Switch>
         <Route exact path = "/">
-          <ItemListContainer title = 'E-COMMERCE'/>
-          <ItemCount title = 'Bicicletas' accion = 'comprar' max = {5} min = {1} amount = {1}/>          
+          <ItemListContainer title = 'E-COMMERCE'/>                    
         </Route>
         <Route exact path = "/item/:id">
             <ItemDetailContainer/>
@@ -30,6 +30,7 @@ function App() {
       </Switch> 
     </div>
     </BrowserRouter>
+    </CartProvider>
   );
 }
 
