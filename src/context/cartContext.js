@@ -6,7 +6,7 @@ export const UserCartContext = () => useContext(CartContext);
 
 export default function CartProvider({children, defaultcart}) {
 
-    const {cart, setCart} = useState(defaultcart);
+    const [cart, setCart] = useState(defaultcart);
 
     function add(item) {
         setCart([...cart, item])
