@@ -9,19 +9,18 @@ export default function ItemDetail (props) {
   const [guardar, setGuardar] = useState();
   const titulo = 'bicicletas';
   const {add} = UserCartContext();
-  const [id, setId] = useState();
+  const [titulos, setTitulos] = useState();
+  const item = `Usted a comprado ${guardar} bicicletas ${titulos}`;
    
   
 
   function onAdd(number){
     setOnLine(false);
     setGuardar(number);
+    setTitulos(props.titulo);
     alert(`Se van a agregar ${number} ${titulo} a su carrito`);
     };
-    
-    setId(props.ids);
-    
-    const item = id + guardar;  
+
      
 
   return (
@@ -33,7 +32,7 @@ export default function ItemDetail (props) {
             <p>{props.precio}</p>             
           </div>
           {onLine ? <ItemCount apagado = {onAdd} title = 'Bicicletas' accion = 'comprar' max = {5} min = {1} amount = {1}/> : <Link to = "/carrito"><button>Terminar mi compra</button></Link>}
-          <button onClick= { add (item) }>Agregar al carrito</button>
+          <button onClick= { () => add(item) }>Agregar al carrito</button>
         </>
     );
 };
