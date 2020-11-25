@@ -1,9 +1,9 @@
-import React,  {useContext} from 'react';
-import  CartProvider from '../context/cartContext.js';
+import React from 'react';
+import  {UserCartContext} from '../context/cartContext.js';
 
 export default function Cart() {
 
-    const {cart, remove, clean} = useContext(CartProvider);
+    const {cart, remove, clean} = UserCartContext();
 
    
     return (
