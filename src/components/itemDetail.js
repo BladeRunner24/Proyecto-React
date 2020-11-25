@@ -1,14 +1,14 @@
-import React, {useState, useContext } from 'react';
+import React, {useState} from 'react';
 import { Link } from 'react-router-dom';
 import ItemCount from "./itemCount.js";
-import  CartProvider from '../context/cartContext.js';
+import  {UserCartContext} from '../context/cartContext.js';
 
 export default function ItemDetail (props) {
 
   const [onLine, setOnLine] = useState(true);
   const [guardar, setGuardar] = useState();
   const titulo = 'bicicletas';
-  const {add} = useContext(CartProvider);
+  const {add} = UserCartContext();
   const [id, setId] = useState();
    
   
