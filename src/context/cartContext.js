@@ -12,15 +12,11 @@ export default function CartProvider({children, defaultcart}) {
         setCart([...cart, item])
     };
 
-    function remove(itemid) {
-        setCart(cart.filter(item => item.id !== itemid))
-    };
-
     function clean() {
         setCart([]);
-    }
+    };
 
-    return <CartContext.Provider value = {{cart, add, remove, clean}}>
+    return <CartContext.Provider value = {{cart, add, clean}}>
         {children}
     </CartContext.Provider>
-} 
+};
