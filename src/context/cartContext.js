@@ -9,21 +9,29 @@ export default function CartProvider({children, defaultcart}) {
     const [cart, setCart] = useState(defaultcart);
     
     
+    
     function add(item) {  
-        if (item.find(p => p.nombre === item.nombre)) {   
-       setCart([...cart, item]) 
-        }else { console.log('El item ya fue comprado')}         
-             
-    };
-    function remove (item) {
-        setCart(item.filter(p => p.nombre !== item.nombre))
-    }
 
+        const prueba = (element) => element.id === item.id;
+        let resultado = cart.findIndex(prueba)
+        let total = cart[resultado]
+        
+
+       if(cart.findIndex(prueba) === -1 ){  
+       setCart([...cart, item])                  
+       }else { 
+            function change(){
+                total.numero = total.numero + item.numero;
+            } 
+            change(); 
+       }     
+    };
+    
     function clean() {
         setCart([]);
     };
 
-    return <CartContext.Provider value = {{cart, add, clean, remove}}>
+    return <CartContext.Provider value = {{cart, add, clean}}>
         {children}
     </CartContext.Provider>
-}; 
+};
