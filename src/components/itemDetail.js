@@ -11,7 +11,7 @@ export default function ItemDetail (props) {
   const {add} = UserCartContext();
   const [titulos, setTitulos] = useState();
   const item = {
-    nombre: titulos,
+    id: titulos,
     numero: guardar
   };
    
