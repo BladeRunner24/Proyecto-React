@@ -7,6 +7,8 @@ export const UserCartContext = () => useContext(CartContext);
 export default function CartProvider({children, defaultcart}) {
 
     const [cart, setCart] = useState(defaultcart);
+    const [sum, setSum] = useState(0);
+    
     
     
     
@@ -26,12 +28,29 @@ export default function CartProvider({children, defaultcart}) {
             change(); 
        }     
     };
+
+    function remove (item) {
+        setCart(cart.filter(p => p.id !== item.id));
+        const suma1 = cart.reduce((a, b) => a.numero * a.precio + b.numero * b.precio);
+        setSum(suma1);
+        console.log(cart);
+    };
     
     function clean() {
         setCart([]);
+        setSum(0)
     };
 
-    return <CartContext.Provider value = {{cart, add, clean}}>
+    function totalCompra() {
+        
+       const suma = cart.reduce((a, b) => a.numero * a.precio + b.numero * b.precio);
+
+       setSum(suma);
+       console.log(suma);          
+    };
+    
+
+    return <CartContext.Provider value = {{cart, add, clean, remove, totalCompra, sum}}>
         {children}
     </CartContext.Provider>
 };
