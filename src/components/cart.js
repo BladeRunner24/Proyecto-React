@@ -4,8 +4,9 @@ import  {UserCartContext} from '../context/cartContext.js';
 export default function Cart() {
 
     const {cart, clean, remove, totalCompra, sum} = UserCartContext();
-    console.log(cart);
     
+    console.log(cart);
+        
 
    
     return (
@@ -19,6 +20,13 @@ export default function Cart() {
             <button onClick = {totalCompra}>Ver total compra</button>
         </div>
         <p>Usted a comprado $: {sum}</p>
+        <div>
+        <h2>Complete sus datos para terminar la compra</h2>
+        <input type = 'text' placeholder = 'Nombre y apellido'/>
+        <input type = 'text' placeholder = 'Telefono'/>
+        <input type = 'text' placeholder = 'E-mail'/>
+        <button>Checkout</button> 
+        </div>
         </>        
     )
 
