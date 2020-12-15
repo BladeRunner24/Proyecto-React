@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from 'react';
-import ListaItems from './ItemList.js'
+import ListaItems from './ItemList.js';
+import {getFirestore} from '../firebase';
 
 const styles = {
     marginLeft: '5vw',
@@ -18,36 +19,26 @@ const styles1 = {
 
 export default function ItemListContainer (props) {
 
-  const [ listadoProds, setListadoProds ] = useState( [ ] );
+const [ listadoProds, setListadoProds ] = useState( [ ] );
+const [ loading, setLoading ] = useState(null);
   
   useEffect(() => {
-    
-    const list = new Promise((res, rej) => {
-      setTimeout(() => {
-        res([
-          {
-            id: '130b',
-            title: 'Mountain Bike Lince',
-            price: 50000,
-            image: './imagenes/bicicleta_lince.webp'  
-          },
-          {
-            id: '152a',
-            title: 'Mountain Bike Tiger',
-            price: 65000,
-            image: './imagenes/bicicleta_tiger.webp'  
-          }
-      ]);
-      }, 2000);
-    });
-    list.then(listado => {
-      setListadoProds(listado); 
-    }, err => {
-       console.log(null);
-    }).catch (error => {
-      console.log(`Se ha producido un error ${error}`);
-    })
+    setLoading(true);
+    const db = getFirestore();
+    const itemCollection = db.collection("items");
+
+    itemCollection.get().then((querySnapshot) => {
+      if(querySnapshot.size === 0) {
+        console.log('Sin resultados');
+      };
+      setListadoProds(
+        querySnapshot.docs.map(doc => ({ id: doc.id, ...doc.data()}))
+      );
+      setLoading(false);
+      });  
+
   }, []);
+
 
    
     return (
