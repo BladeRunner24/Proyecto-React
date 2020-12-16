@@ -6,6 +6,8 @@ import ItemDetailContainer from './components/itemDetailContainer.js';
 import Cart from './components/cart.js';
 import './App.css';
 import  CartProvider  from './context/cartContext.js';
+import Gracias from './components/checkout.js';
+ 
 
 
 
@@ -26,6 +28,9 @@ function App() {
         </Route>
         <Route exact path = "/carrito">
             <Cart/>
+        </Route>
+        <Route exact path = "/final">
+            <Gracias/>
         </Route>
       </Switch> 
     </div>
